@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Col, Card } from 'react-bootstrap';
 
+import CommentArea from './CommentArea'
+
 function SingleBook({ book }) {
 
   const [selected, setSelected] = useState(false);
@@ -18,6 +20,7 @@ function SingleBook({ book }) {
           </Card.Text>
         </Card.Body>
       </Card>
+      {selected && <CommentArea id={book.asin}/>}
     </Col>
   );
 }
