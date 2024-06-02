@@ -1,27 +1,21 @@
 import '../style/AllTheBook.css';
 
-import { Form, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import SingleBook from './SingleBook';
 import { useState } from 'react';
+import SearchBook from './SearchBook';
 
 function AllTheBooks({ books }) {
 
   const [search, setSearch] = useState('');
 
-  const InputSearch = (e) => {
+  const handleSearch = (e) => {
     setSearch(e);
   } 
   
   return (
     <>
-      <Form.Control
-        className='mb-4'
-        placeholder='Search book'
-        type='text'
-        name='search'
-        value={search}
-        onChange={(e) => InputSearch(e.target.value)}
-      />
+      <SearchBook search={search} handleSearch={handleSearch} />
       <Row>
         {books.filter((book) => book.title.toLowerCase().includes(search))
           .map((book) => <SingleBook key={book.asin} book={book} />)}
