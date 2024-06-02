@@ -8,13 +8,13 @@ function CommentList({ comments }) {
 
   return (
     <Container className='comment-list'>
-      <Accordion defaultActiveKey="1">
-      <Accordion.Item eventKey="0">
+      <Accordion defaultActiveKey='1'>
+      <Accordion.Item eventKey='0'>
         <Accordion.Header>Comment List</Accordion.Header>
         <Accordion.Body>
           <ListGroup>
             {comments.map((comment) => (
-              <ListGroup.Item key={comment._id}>{comment.comment}</ListGroup.Item>
+              <ListGroup.Item key={comment._id}>{comment.comment} - rate: {comment.rate}</ListGroup.Item>
             ))}
           </ListGroup>
         </Accordion.Body>
